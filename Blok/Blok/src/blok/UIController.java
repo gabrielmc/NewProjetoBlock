@@ -12,16 +12,19 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 
-public class UIController extends JFrame implements IUIController {
-    private ICore core;
-    private GamePanel gamePanel;
-    private UIChoosePanel chosePanel;
-    private IPanels panel;
+class UIController extends JFrame implements IUIController {
+    ICore core;
+    GamePanel gamePanel;
+    UIChoosePanel chosePanel;
+    IPanels panel;
+
+    UIController(ICore core) {
+        this.core = core;
+    }
 
     @Override
-    public boolean initialize(ICore core) {
+    public boolean initialize() {
         try {
-            this.core = core;
             Dimension sizeUIChose = new Dimension(400, 300);
             setVisible(true);
             setDefaultCloseOperation(EXIT_ON_CLOSE);

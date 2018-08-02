@@ -193,6 +193,11 @@ public class Box2D implements ISimulator, Runnable, ContactListener{
     }
     
     @Override
+    public void setM_PLAYER(Rectangle rect) {
+        m_player = rect;
+    }
+    
+    @Override
     public void endContact(Contact cntct) {
     }
 

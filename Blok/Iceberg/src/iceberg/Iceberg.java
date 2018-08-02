@@ -8,12 +8,17 @@ public class Iceberg extends IPlugin implements IUIFactory{
     private IGround ground;
     private IBlocks block;
     private IPlayer player;
+    private static Iceberg instance;
     
     public Iceberg(){
         this.background = new Background();
         this.ground = new Ground();
         this.block  = new Blocks();
         this.player = new Player();
+    }
+    
+    public static Iceberg getInstance(){
+        return (instance == null) ? instance = new Iceberg() : instance;
     }
     
     @Override

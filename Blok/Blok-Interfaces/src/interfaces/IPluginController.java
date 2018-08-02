@@ -4,7 +4,7 @@ import blok.templates.IPlugin;
 import java.util.ArrayList;
 
 public interface IPluginController {
-    public boolean initialize(ICore core);
+    public boolean initialize();
     public ArrayList<String> getName(ArrayList<IPlugin> plugins);
     public void setCurrentPlugins(int UIChoose, String physicsChoose);
     public void getAllLoadedPlugins(ArrayList<String> removeList);

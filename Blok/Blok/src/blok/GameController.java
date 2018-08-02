@@ -7,18 +7,21 @@ import interfaces.ISimulator;
 import interfaces.ISimulatorFactory;
 import physicssimulator.SimulatorFactory;
 
-public class GameController implements IGameController {
+class GameController implements IGameController {
     
-    private ICore core;
-    private IUIFactory currentUI;
-    private ISimulator currentPhysics;
-    private ISimulatorFactory simulatorFactory;
-    private State m_state = State.INITIAL;
+    ICore core;
+    IUIFactory currentUI;
+    ISimulator currentPhysics;
+    ISimulatorFactory simulatorFactory;
+    State m_state = State.INITIAL;
+
+    GameController(ICore core) {
+        this.core = core;
+    }
 
     @Override
-    public boolean initialize(ICore core) {
-        this.core = core;
-        simulatorFactory = (ISimulatorFactory) new SimulatorFactory();
+    public boolean initialize() {
+        simulatorFactory = new SimulatorFactory();
         return true;
     }
     

@@ -12,4 +12,5 @@ public interface ISimulator {
     public void run();
     public void mouseReleased(MouseEvent e);
     public Collection<Rectangle> getM_BODYRECT();
+    public void setM_PLAYER(Rectangle rect);
 }

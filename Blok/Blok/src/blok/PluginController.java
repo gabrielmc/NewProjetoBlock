@@ -13,23 +13,23 @@ import blok.templates.IUIFactory;
 import java.util.jar.*;
 import java.io.*;
 
-public class PluginController implements IPluginController{
+class PluginController implements IPluginController{
 
-    private final ArrayList<IPlugin> pluginsList;
-    private final ArrayList<String> removePluginFromList;
-    private String[] allPlugins;
-    private URLClassLoader ulc;
+    final ArrayList<IPlugin> pluginsList;
+    final ArrayList<String> removePluginFromList;
+    String[] allPlugins;
+    URLClassLoader ulc;
     
     private ICore core;
     
-    public PluginController() {
-        removePluginFromList = new ArrayList<String>();
-        pluginsList = new ArrayList<IPlugin>();
+    PluginController(ICore core) {
+        this.core = core;
+        this.removePluginFromList = new ArrayList<String>();
+        this.pluginsList = new ArrayList<IPlugin>();
     }
             
     @Override
-    public boolean initialize(ICore core) {
-        this.core = core;
+    public boolean initialize() {
         getAllLoadedPlugins(removePluginFromList);
         return true;
     }
